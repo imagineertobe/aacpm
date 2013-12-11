@@ -1,0 +1,36 @@
+{
+	"name": "American Airlines Cents-per-mile Extension",
+	"version": "1.1.3",
+	
+	"description": "Calculates the CPM for American Airlines (AA) flights displayed on the Price & Schedule search page at aa.com.",
+	
+	"permissions": [
+		"tabs",
+		"http://www.aa.com/",
+		"https://www.aa.com/"
+	],
+	"icons": {
+		"48": "logo48.png",
+		"128": "logo128.png"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"http://www.aa.com/reservation/matrixFlightSearchResultsAccess.do*",
+				"https://www.aa.com/reservation/matrixFlightSearchResultsAccess.do*",
+				"http://www.aa.com/reservation/tripSearchSubmit.do*",
+				"https://www.aa.com/reservation/tripSearchSubmit.do*",
+				"http://www.aa.com/reservation/filterFlightSearch.do*",
+				"https://www.aa.com/reservation/filterFlightSearch.do*",
+				"http://www.aa.com/reservation/processDepartureSelection.do*",
+				"https://www.aa.com/reservation/processDepartureSelection.do*"
+			],
+			"js" : [
+				"js/jquery-1.4.2.min.js",
+				"js/jquery-ui-1.8.2.custom.min.js",
+				"aa-selecting-cpm.js"
+			],
+			"run_at" : "document_end"
+		}
+	]
+}
